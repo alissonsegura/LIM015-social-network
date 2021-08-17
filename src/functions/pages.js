@@ -85,14 +85,22 @@ export const onLoadNews = () => {
   const profile = document.querySelector('#profile');
   const logOut = document.querySelector('#logout');
   const userImage = document.querySelector('#userImage');
+  const userImagePost = document.querySelector('#userImagePost');
   const userInformation = JSON.parse(localStorage.getItem('user'));
-  userImage.setAttribute('src', userInformation.photoURL);
-  // set a default image when photoURL null
+  userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
+  userImagePost.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
+
+  // if (userInformation.photoURL) {
+  //   userInformation.setAttribute('src' ,userInformation.photoURL )
+  // } else {
+  //   userInformation.setAttribute('src' , './images/default-profile.svg')
+  // }
   logOut.addEventListener('click', async () => {
     await logOutPage();
     window.history.replaceState({ route: 'login' }, 'login', '/login');//
     window.dispatchEvent(new Event('popstate'));
   });
+
   profile.addEventListener('click', () => {
     console.log('I am Your Profile');
   });
