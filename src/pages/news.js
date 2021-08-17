@@ -1,31 +1,65 @@
-const newsPage = `<header id="container" class="navcontainer">
-  <nav id="menu">
-    <ul class="options-container">
-      <p id="profile" class="menuoptions">Profile</p>
-      <p class="menuoptions">Discover<img class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
-          srcset="" /></p>
-      <div id= "logout" class="menuoptions">
-      <p>Log out</p>
-      <img id="userImage" class="navicons" src="" alt="logouticon"
-          srcset="" /></div>
-    </ul>
-  </nav>
-</header>
+const newsPage = `
+<nav class="navcontainer" id="menu">
+  <p id="profile" class="profile">Profile</p>
 
-<section id="newscontainer" class="newscontainer">
-  <div class="profile-container">
-    <div id="image-name" class="image-name">
-    <img class="" src="./images/post-image.svg" alt="image-post" srcset="">
-    </div>
+  <div  class="menuoptions">
+  <p class="menuoptions">Discover</p>
+  <br>
+  <img class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
+    srcset=""/>
   </div>
+
+  <div id= "logout" class="menuoptions">
+  <p class="logout">Log out </p>
+  <img id="navicons" class="navicons" src="./images/logout.svg" alt="logout icon"
+    srcset="" />
+  </div>
+</nav>
+
+<section class="status-container">
+  <div class="infocontainer">
+    <img id="userImage" class="userImage" src="" alt="user photo" srcset="" /> 
+    <p class="user-name" id="user-name">Alisson</p>
+  </div>
+</section>
+
+
+
+
+<section class = "newscontainer" >
   <section class="post-container">
     <div class="post-text" id="post text">
-      <input class="status" type="text" placeholder="What's on your mind?">
+      <textarea class="status" type="text" placeholder="What's on your mind?"></textarea>
       <div class="buttons">
         <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
         <button class="post">Post</button>
       </div>
     </div>
   </section>
-</section>`;
+
+
+    
+  
+  <div class="status-main">
+  <div class="main">
+    <div class="imgandtext">
+      <img id="userImagePost" class="userImagePost" src="" alt="user photo" srcset="" />
+      <p class="user-name" id="user-name">Alisson</p>
+    </div>
+    <div class="dropdownbox">
+      <img id="dropdown" class="dropdown" src="./images/more-horizontal.svg" alt="user photo" srcset="" />
+    </div>
+  </div>
+
+  <div class="container-main">
+    <textarea class="statusbox" type="text" placeholder="HELLO"></textarea>
+
+    <div class="svgbuttons">
+      <img class="svgimg" src="./images/likebutton.svg" alt="image-post" srcset="" />
+      <img class="svgimgs" src="./images/commentbutton.svg" alt="image-post" srcset="" />
+    </div>
+  </div>
+</div>
+</section>
+`;
 export default newsPage;
