@@ -117,10 +117,10 @@
     justify-content: center;
     text-align: center;
     background-color: var(--primary-color);
-    font-size: 12px;
+    font-size: 15px;
     flex-direction: row;
     flex-wrap: nowrap;
-    column-gap: 80px;
+    column-gap: 19%;
     padding: 14px;
 }
 .menuoptions{
@@ -175,7 +175,11 @@
     padding-top: 7px;
     font-size: 12px;
 }
+.username{
+    padding-top: 7px;
+    font-size: 12px;
 
+}
 /* end user image & name */
 
 /* News post box */
@@ -186,7 +190,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--secundary-color);
-    height: 58vh;
+    /* height: 58vh; */
 
 }
 
@@ -234,9 +238,10 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     width: 80%;
     /* height: 155px; */
-    margin-top: 30px;
+    margin-top: 45px;
     padding: 8px 12px;
     align-items: center;
+    margin: 45px 0;
 }
 
 .userImagePost{
@@ -276,42 +281,82 @@
 .dropdown{
     width: 20px;
 }
+#post-container{
+    display: none;
+}
+.textbox{
+    width: 100%;
+}
+
+/* #root{
+max-width: 960px;
+margin: auto;
+} */
+
 /* .container-main{
     align-items: center;
 } */
 
-/* tablet */
-/* min 768 px  */
-
 @media only screen and (min-width: 400px){
-/* .post-container{
-    width: 356px;
+.navcontainer{
+column-gap: 20%;
+font-size: 17px;
 }
-.status{
-    width: 308px;
 }
-
-.status-main{
-    width: 354px;
+@media only screen and (min-width: 500px){
+.navcontainer{
+font-size: 17px;
+column-gap: 24%;
+}  
 }
-.statusbox{
-    width: 307px;
-}
-.userImagePost{
-    padding-right: 5px;
-}
-.dropdown{
-    padding-left: 216px;
-}
-.post{
-    margin-left: 126px;
+@media only screen and (min-width: 600px){
+.container{
+width: 45%;
 }
 .navcontainer{
-    font-size: 14px;
-} */
-/* tablet */
-/* min 768 px  */
-
-/* Desktop */
+column-gap: 29%;
+font-size: 18px;
+}
+.status-container{
+    align-items: flex-start;
+}
+.username{
+    padding-top: 8%;
+    font-size: 13px;
+    padding-left: 33%;
+}
+#posttwo{
+    display: none;
+}
+#post-container{
+    display: flex;
+    width: 70%;
 
 }
+.boxed{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+.infocontainer{
+    flex-direction: column;
+}
+
+
+}
+@media only screen and (min-width: 700px){
+.boxed{
+justify-content: space-around; 
+}
+}
+@media only screen and (min-width: 900px){
+.container{
+    width: 35%;
+}
+}
+@media only screen and (min-width: 1200px){
+    .container{
+    width: 28%;
+    }
+}
+
