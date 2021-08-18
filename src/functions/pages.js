@@ -85,10 +85,14 @@ export const onLoadNews = () => {
   const profile = document.querySelector('#profile');
   const logOut = document.querySelector('#logout');
   const userImage = document.querySelector('#userImage');
+  const userName = document.querySelector('#user-name');
+  const userNameFeed = document.querySelector('#username');
   const userImagePost = document.querySelector('#userImagePost');
   const userInformation = JSON.parse(localStorage.getItem('user'));
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
   userImagePost.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
+  userName.innerHTML = userInformation.name;
+  userNameFeed.innerHTML = userInformation.name;
 
   // if (userInformation.photoURL) {
   //   userInformation.setAttribute('src' ,userInformation.photoURL )
