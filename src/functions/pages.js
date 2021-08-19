@@ -2,6 +2,8 @@ import {
   login, googleAuth, facebookAuth, signUp, logOutPage, sendEmailVerification,
 } from '../auth.js';
 
+import { postToFireBase } from '../firestore.js';
+
 export const onLoadLogin = () => {
   // const loginForm = document.querySelector('#login');
   const email = document.querySelector('#loginemail');
@@ -88,6 +90,8 @@ export const onLoadNews = () => {
   const userName = document.querySelector('#user-name');
   const userNameFeed = document.querySelector('#username');
   const userImagePost = document.querySelector('#userImagePost');
+  const textPost = document.querySelector('#textpost');
+  const publishButton = document.querySelector('#post');
   const userInformation = JSON.parse(localStorage.getItem('user'));
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
   userImagePost.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
@@ -108,4 +112,16 @@ export const onLoadNews = () => {
   profile.addEventListener('click', () => {
     console.log('I am Your Profile');
   });
+
+  const publishPost = () => {
+    const getValue = textPost.value;
+    const postInfo = {
+      name: userInformation.name,
+      photo: userInformation.photoURL,
+      post: getValue,
+    };
+    postToFireBase(postInfo);
+  };
+
+  publishButton.addEventListener('click', publishPost);
 };

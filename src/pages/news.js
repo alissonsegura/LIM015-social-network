@@ -37,10 +37,10 @@ const newsPage = `
   <section id="news" class="newscontainer">
     <section id = "posttwo" class="post-container">
       <div class="post-text" id="post text">
-        <textarea class="status" type="text" placeholder="What's on your mind?"></textarea>
+        <textarea id="textpost" class="status" type="text" placeholder="What's on your mind?"></textarea>
         <div class="buttons">
           <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
-          <button class="post">Post</button>
+          <button id= "post" class="post">Post</button>
         </div>
       </div>
     </section>
