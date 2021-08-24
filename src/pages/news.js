@@ -33,7 +33,7 @@ const newsPage = `
   </section>
 
 
-
+  <!-- STATUS DIV -->
   <section id="news" class="newscontainer">
     <section id = "posttwo" class="post-container">
       <div class="post-text" id="post text">
@@ -47,27 +47,8 @@ const newsPage = `
 
 
 
-
-    <div class="status-main">
-      <div class="main">
-        <div class="imgandtext">
-          <img id="userImagePost" class="userImagePost" src="" alt="user photo" srcset="" />
-          <p class="user-name" id="username"></p>
-        </div>
-        <div class="dropdownbox">
-          <img id="dropdown" class="dropdown" src="./images/more-horizontal.svg" alt="user photo" srcset="" />
-        </div>
-      </div>
-
-      <div class="container-main">
-        <textarea class="statusbox" type="text" placeholder="HELLO"></textarea>
-
-        <div class="svgbuttons">
-          <img class="svgimg" src="./images/likebutton.svg" alt="image-post" srcset="" />
-          <img class="svgimgs" src="./images/commentbutton.svg" alt="image-post" srcset="" />
-        </div>
-      </div>
-    </div>
+    <!-- POST -->
+  
   </section>
 `;
 export default newsPage;

@@ -318,28 +318,28 @@ column-gap: 29%;
 font-size: 18px;
 }
 .status-container{
-    align-items: flex-start;
+align-items: flex-start;
 }
 .username{
-    padding-top: 8%;
-    font-size: 13px;
-    padding-left: 33%;
+padding-top: 8%;
+font-size: 13px;
+padding-left: 33%;
 }
 #posttwo{
     display: none;
 }
 #post-container{
-    display: flex;
-    width: 70%;
+ display: flex; 
+width: 70%;
 
 }
 .boxed{
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
+flex-direction: row;
+display: flex;
+justify-content: space-between;
 }
 .infocontainer{
-    flex-direction: column;
+flex-direction: column;
 }
 
 
@@ -351,12 +351,12 @@ justify-content: space-around;
 }
 @media only screen and (min-width: 900px){
 .container{
-    width: 35%;
+width: 35%;
 }
 }
 @media only screen and (min-width: 1200px){
-    .container{
-    width: 28%;
-    }
+.container{
+width: 28%;
+}
 }
 

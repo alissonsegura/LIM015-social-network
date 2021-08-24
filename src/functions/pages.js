@@ -2,7 +2,7 @@ import {
   login, googleAuth, facebookAuth, signUp, logOutPage, sendEmailVerification,
 } from '../auth.js';
 
-import { postToFireBase } from '../firestore.js';
+import { postToFireBase, getPosts } from '../firestore/firestore.js';
 
 export const onLoadLogin = () => {
   // const loginForm = document.querySelector('#login');
@@ -83,21 +83,17 @@ export const onLoadSignUp = () => {
 };
 
 export const onLoadNews = () => {
-  // Log out
   const profile = document.querySelector('#profile');
   const logOut = document.querySelector('#logout');
   const userImage = document.querySelector('#userImage');
   const userName = document.querySelector('#user-name');
-  const userNameFeed = document.querySelector('#username');
-  const userImagePost = document.querySelector('#userImagePost');
-  const textPost = document.querySelector('#textpost');
-  const publishButton = document.querySelector('#post');
+  const textPost = document.querySelector('.status');
+  const publishButton = document.querySelector('.post');
+  const newsContainer = document.querySelector('.newscontainer');
   const userInformation = JSON.parse(localStorage.getItem('user'));
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
-  userImagePost.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
-  userName.innerHTML = userInformation.name;
-  userNameFeed.innerHTML = userInformation.name;
 
+  userName.innerHTML = userInformation.name;
   // if (userInformation.photoURL) {
   //   userInformation.setAttribute('src' ,userInformation.photoURL )
   // } else {
@@ -113,15 +109,72 @@ export const onLoadNews = () => {
     console.log('I am Your Profile');
   });
 
-  const publishPost = () => {
+    const publishPost = () => {
     const getValue = textPost.value;
     const postInfo = {
       name: userInformation.name,
       photo: userInformation.photoURL,
       post: getValue,
+      date: new Date().toLocaleString(),
+      likes: [],
     };
+  
     postToFireBase(postInfo);
+    textPost.value = "";
+ 
   };
+  //const posts = await getPosts();
 
   publishButton.addEventListener('click', publishPost);
+
+
+
+  // posts = await getPosts()
+
+  getPosts((arrayPosts) => {
+
+  
+     renderPosts(arrayPosts)
+  })
 };
+
+
+// getPosts((arrayPosts) => {
+//   const wallContainer = document.createElement('div');
+//   const contentPostInWall = `<div id="post-list"></div>`;
+
+//   wallContainer.innerHTML = contentPostInWall;
+//   const postList = wallContainer.querySelector('#post-list');
+
+//    renderPosts(arrayPosts)
+// })
+
+
+export const renderPosts = (posts) => {
+  const newsContainer = document.querySelector('#news')
+  posts.forEach((info) => {
+   return newsContainer.innerHTML += `
+    <div data-id = "${info.id}" class="status-main">
+      <div class="main">
+        <div class="imgandtext">
+          <img id="userImagePost" class="userImagePost" src="${info.photo}" alt="user photo" srcset="" />
+          <p class="user-name" id="username">${info.name}</p>
+        </div>
+      <div class="dropdownbox">
+      <select>
+        <option class="btn-edit"  value = "Edit"> Edit</option>
+        <option class="btn-delete" value = "Delete">Delete</option>
+      </select>
+      </div>
+    </div>
+
+    <div class="container-main">
+      <textarea class="statusbox" type="text" placeholder="${info.post}"></textarea>
+
+      <div class="svgbuttons">
+        <img class="svgimg" src="./images/likebutton.svg" alt="image-post" srcset="" />
+        <img class="svgimgs" src="./images/commentbutton.svg" alt="image-post" srcset="" />
+      </div>
+    </div>`
+  })
+}
