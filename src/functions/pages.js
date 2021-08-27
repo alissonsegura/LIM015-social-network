@@ -2,8 +2,8 @@ import {
   login, googleAuth, facebookAuth, signUp, logOutPage, sendEmailVerification,
 } from '../auth.js';
 
-import { postToFireBase } from '../firestore.js';
-
+import { getPosts, deletePosts } from '../firestore/firestore.js';
+import {publishPost} from '../controller/posts.js'
 export const onLoadLogin = () => {
   // const loginForm = document.querySelector('#login');
   const email = document.querySelector('#loginemail');
@@ -83,29 +83,22 @@ export const onLoadSignUp = () => {
 };
 
 export const onLoadNews = () => {
-  // Log out
   const profile = document.querySelector('#profile');
   const logOut = document.querySelector('#logout');
   const userImage = document.querySelector('#userImage');
   const userName = document.querySelector('#user-name');
-  const userNameFeed = document.querySelector('#username');
-  const userImagePost = document.querySelector('#userImagePost');
-  const textPost = document.querySelector('#textpost');
-  const publishButton = document.querySelector('#post');
+
+  // text area mobile / desktop
+  const txtAreaMobile = document.querySelector('#txtareamobile');
+  const btnPostMob = document.querySelector('#btnpostmob');
   const userInformation = JSON.parse(localStorage.getItem('user'));
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
-  userImagePost.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
-  userName.innerHTML = userInformation.name;
-  userNameFeed.innerHTML = userInformation.name;
 
-  // if (userInformation.photoURL) {
-  //   userInformation.setAttribute('src' ,userInformation.photoURL )
-  // } else {
-  //   userInformation.setAttribute('src' , './images/default-profile.svg')
-  // }
+  userName.innerHTML = userInformation.name;
+
   logOut.addEventListener('click', async () => {
     await logOutPage();
-    window.history.replaceState({ route: 'login' }, 'login', '/login');//
+    window.history.replaceState({ route: 'login' }, 'login', '/login');
     window.dispatchEvent(new Event('popstate'));
   });
 
@@ -113,15 +106,59 @@ export const onLoadNews = () => {
     console.log('I am Your Profile');
   });
 
-  const publishPost = () => {
-    const getValue = textPost.value;
-    const postInfo = {
-      name: userInformation.name,
-      photo: userInformation.photoURL,
-      post: getValue,
-    };
-    postToFireBase(postInfo);
-  };
+  
+  btnPostMob.addEventListener('click', publishPost);
 
-  publishButton.addEventListener('click', publishPost);
+  const renderPosts = (info) => {
+    return `
+    <div id="getId-${info.id}" class="status-main">
+      <div class="main">
+        <div class="imgandtext">
+          <img id="userImagePost" class="userImagePost" src="${info.photo}" alt="user photo" srcset="" />
+          <p class="user-name" id="username">${info.name}</p>
+        </div>
+        <div class="dropdownbox">
+          <select class="dropdown" >
+            <option class="btn-edit"  value = "Edit"> Edit</option>
+            <option class="btn-delete" value = "Delete">Delete</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="container-main">
+        <textarea class="statusbox" type="text" placeholder="${info.post}"></textarea>
+        <div class="svgbuttons">
+          <img class="svgimg" src="./images/likebutton.svg" alt="image-post" srcset="" />
+          <img class="svgimgs" src="./images/commentbutton.svg" alt="image-post" srcset="" />
+        </div>
+      </div>
+    </div>`   
+  }
+
+   const handlePosts = (posts) => {
+    const newsContainer = document.querySelector('#news')
+    let contentPost = '';
+    posts.forEach((info) => {
+      contentPost += renderPosts(info)
+    })
+    newsContainer.innerHTML = contentPost;
+
+    posts.forEach((info) => {
+      newsContainer.querySelector(`#getId-${info.id}`).addEventListener('click', () => deletePosts(info.id))
+      
+    })
+
+  }
+
+  getPosts((arrayPosts) => {
+    handlePosts(arrayPosts)
+  })
+
+
 };
+
+
+
+
+//diferenciar que post va a editar segun el Id
+

@@ -7,6 +7,8 @@ export const login = async (email, password) => {
       name: userCredential.user.displayName,
       email: userCredential.user.email,
       photoURL: userCredential.user.photoURL,
+      id: userCredential.user.uid,
+      
     };
     localStorage.setItem('user', JSON.stringify(userInformation));
     return userCredential;
@@ -52,6 +54,7 @@ export const signUp = async (email, password) => {
       name: userCredentialforSignUp.user.displayName,
       email: userCredentialforSignUp.user.email,
       photoURL: userCredentialforSignUp.user.photoURL,
+      id: userCredentialforSignUp.user.uid,
     };
     localStorage.setItem('user', JSON.stringify(userSignUpInfo));
     return userCredentialforSignUp;
@@ -65,10 +68,12 @@ export const googleAuth = async () => {
   try {
     const provider = await new firebase.auth.GoogleAuthProvider();
     const popUpGoogleAuth = await auth.signInWithPopup(provider);
+    console.log(popUpGoogleAuth );
     const googleUserInfo = {
       name: popUpGoogleAuth.user.displayName,
       email: popUpGoogleAuth.user.email,
       photoURL: popUpGoogleAuth.user.photoURL,
+      id: popUpGoogleAuth.user.uid,
     };
     localStorage.setItem('user', JSON.stringify(googleUserInfo));
     return popUpGoogleAuth;
