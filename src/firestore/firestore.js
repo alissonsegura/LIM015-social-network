@@ -6,12 +6,12 @@ export const postToFireBase = (postInfo) => {
 
 //get all doc from firestore in real-time
 export const getPosts = (callback) => {
-  const query = fireStore.collection('posts');
+  const query = fireStore.collection('posts').orderBy('date' , 'desc');
   query.onSnapshot(querySnapshot => {//posts
     const arrayPosts = [];
     querySnapshot.forEach(doc => {
       arrayPosts.push({
-        id: doc.id,
+        id: doc.id, 
         ...doc.data()
       })
     })
@@ -20,7 +20,33 @@ export const getPosts = (callback) => {
 };
 
 
-// window.addEventListener('DOMContentLoaded' , async (e) => {
+
+// Function Delete Post
+export const deletePosts = (id) => fireStore.collection('posts').doc(id).delete();
+
+ // Function Edit Post
+
+//  export const editPosts = (id, input) => {
+//   const fireStoreCollection = firebase.firestore().collection('posts');
+//   return fireStoreCollection.doc(id).update({
+//     id: doc.id,
+//   });
+// };
+
+
+  export const editPostFirebase = (id, note) => firebase.firestore().collection('post').doc(id).update({
+  notes: note,
+
+  date: new Date().toLocaleString(),
+});
+ 
+
+
+
+
+
+
+  // window.addEventListener('DOMContentLoaded' , async (e) => {
 //   try{
 //     const posts =  await getPosts()
 //   } catch(error){
@@ -28,34 +54,10 @@ export const getPosts = (callback) => {
 //   }
 // });
 
-// const query = fireStore.collection('posts');
-//   query.onSnapshot(querySnapshot => {//posts
-//     const arrayPosts = [];
-//     querySnapshot.forEach(doc => {
-//       arrayPosts.push({
-//         id: doc.id,
-//         ...doc.data()
-//       })
-//     })
-//     callback(arrayPosts)
-//   })
 
-//delete data
-// const buttonDelete = document.querySelector(`[data-id='${info.id}'] .btn-delete`);
-// buttonDelete.addEventListener('change', () => {
-//   fireStore.collection('posts').doc(`${info.id}`).delete().then(() => {
-//     console.log('document deleted');
-//   }).catch(error =>{
-//     console.log('error' , error);
-//   })
-// })
 
 //edit data
-// const buttonEdit = document.querySelector('.btn-edit');
-// buttonEdit.addEventListener('change' , () => {
-  
 
-// })
 
 
 // likes

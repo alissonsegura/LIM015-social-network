@@ -23,32 +23,18 @@ const newsPage = `
     </div>
     <section id="post-container" class="post-container">
       <div class="textbox" id="post text">
-        <textarea class="status" type="text" placeholder="What's on your mind?"></textarea>
+        <textarea class="status" id="txtarea" placeholder="What's on your mind?"></textarea>
         <div class="buttons">
           <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
-          <button class="post">Post</button>
+          <button id="btnpostmob" class="post">Post</button>
         </div>
       </div>
     </section>
   </section>
-
-
-  <!-- STATUS DIV -->
-  <section id="news" class="newscontainer">
-    <section id = "posttwo" class="post-container">
-      <div class="post-text" id="post text">
-        <textarea id="textpost" class="status" type="text" placeholder="What's on your mind?"></textarea>
-        <div class="buttons">
-          <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
-          <button id= "post" class="post">Post</button>
-        </div>
-      </div>
-    </section>
-
 
 
     <!-- POST -->
   
-  </section>
+    <section id="news" class="newscontainer"></section>
 `;
 export default newsPage;

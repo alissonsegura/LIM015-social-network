@@ -155,8 +155,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--secundary-color);
-    height: 155px;
-    padding: 30px;
+    padding: 30px 0;
 } 
 .userImage {
     width: 130px;
@@ -203,6 +202,7 @@
     min-height: 155px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     padding: 20px;
+    margin: 0 auto;
 }
 
 .status{
@@ -245,7 +245,7 @@
 }
 
 .userImagePost{
-    width: 43px;
+    width: auto;
     height: 30px;
     border-radius: 50%;
     padding-right: 7px;
@@ -277,13 +277,14 @@
 .main{
     display: flex;
     justify-content: space-between;
+    padding: 10px 0;
 }
 .dropdown{
     width: 20px;
 }
-#post-container{
+/* #post-container{
     display: none;
-}
+} */
 .textbox{
     width: 100%;
 }
@@ -342,16 +343,42 @@ justify-content: space-between;
 flex-direction: column;
 }
 
+.newscontainer, .status-container {
+    margin: 0 auto;
+}
+
+.newscontainer {
+    max-width: 80%;
+}
+.userImage {
+    width: 100px;
+}
+
+.status-container {
+    margin: 0 auto;
+    max-width: 67%;
+    padding: 30px 0;
+}
+
+.infocontainer {
+    align-self: flex-end;
+}
 
 }
 @media only screen and (min-width: 700px){
 .boxed{
 justify-content: space-around; 
 }
+.post-container {
+    margin: 0;
+}
 }
 @media only screen and (min-width: 900px){
 .container{
 width: 35%;
+}
+.status-container {
+    max-width: 70%;
 }
 }
 @media only screen and (min-width: 1200px){
@@ -360,3 +387,8 @@ width: 28%;
 }
 }
 
+@media only screen and (max-width: 599px) {
+    .infocontainer {
+        margin-bottom: 30px;
+    }
+}
