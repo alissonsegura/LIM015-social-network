@@ -8,7 +8,6 @@ export const login = async (email, password) => {
       email: userCredential.user.email,
       photoURL: userCredential.user.photoURL,
       id: userCredential.user.uid,
-      
     };
     localStorage.setItem('user', JSON.stringify(userInformation));
     return userCredential;
@@ -26,26 +25,15 @@ export const sendEmailVerification = async () => {
   }
 };
 // Tracking User conexion
-auth.onAuthStateChanged((user) => {
+export const trackingUser = auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log(' User signed in ');
+    alert(' User signed in ');
     const uid = user.uid;
     console.log(uid);
   } else {
-    console.log('User signed out ');
+    alert('User signed out ');
   }
 });
-// Tracking User conexion
-// export const trackingUser = async () => {
-//   try {
-//     const tracking = await auth.onAuthStateChanged((user)
-//     const uid = user.uid
-//     console.log(uid);
-//     return user;
-//   } catch (error) {
-//     throw Error = error.message;
-//   }
-// }
 // signup
 export const signUp = async (email, password) => {
   try {
@@ -68,7 +56,6 @@ export const googleAuth = async () => {
   try {
     const provider = await new firebase.auth.GoogleAuthProvider();
     const popUpGoogleAuth = await auth.signInWithPopup(provider);
-    console.log(popUpGoogleAuth );
     const googleUserInfo = {
       name: popUpGoogleAuth.user.displayName,
       email: popUpGoogleAuth.user.email,
@@ -81,7 +68,6 @@ export const googleAuth = async () => {
     throw Error(error.message);
   }
 };
-
 // Facebook Authentication
 export const facebookAuth = async () => {
   try {
