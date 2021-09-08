@@ -1,8 +1,8 @@
-const auth = firebase.auth();
+import { loginInFirebase, signUpFirebase, logOutFirebase } from './lib/firebase.js';
 // Login
 export const login = async (email, password) => {
   try {
-    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    const userCredential = await loginInFirebase(email, password);
     const userInformation = {
       name: userCredential.user.displayName,
       email: userCredential.user.email,
@@ -18,26 +18,24 @@ export const login = async (email, password) => {
 // Email Verification
 export const sendEmailVerification = async () => {
   try {
-    const sendingEmail = await auth.currentUser.sendEmailVerification();
+    const sendingEmail = await firebase.auth().currentUser.sendEmailVerification();
     return sendingEmail;
   } catch (error) {
     throw Error(error.message);
   }
 };
 // Tracking User conexion
-export const trackingUser = auth.onAuthStateChanged((user) => {
-  if (user) {
-    alert(' User signed in ');
-    const uid = user.uid;
-    console.log(uid);
-  } else {
-    alert('User signed out ');
-  }
-});
+// export const trackingUser = firebase.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     alert(' User signed in ');
+//   } else {
+//     alert('User signed out ');
+//   }
+// });
 // signup
 export const signUp = async (email, password) => {
   try {
-    const userCredentialforSignUp = await auth.createUserWithEmailAndPassword(email, password);
+    const userCredentialforSignUp = await signUpFirebase(email, password);
     const userSignUpInfo = {
       name: userCredentialforSignUp.user.displayName,
       email: userCredentialforSignUp.user.email,
@@ -55,7 +53,7 @@ export const signUp = async (email, password) => {
 export const googleAuth = async () => {
   try {
     const provider = await new firebase.auth.GoogleAuthProvider();
-    const popUpGoogleAuth = await auth.signInWithPopup(provider);
+    const popUpGoogleAuth = await firebase.auth().signInWithPopup(provider);
     const googleUserInfo = {
       name: popUpGoogleAuth.user.displayName,
       email: popUpGoogleAuth.user.email,
@@ -72,7 +70,7 @@ export const googleAuth = async () => {
 export const facebookAuth = async () => {
   try {
     const provider = new firebase.auth.FacebookAuthProvider();
-    const popUpFbAuth = auth.signInWithPopup(provider);
+    const popUpFbAuth = firebase.auth().signInWithPopup(provider);
     return popUpFbAuth;
   } catch (error) {
     throw Error(error.message);
@@ -80,5 +78,5 @@ export const facebookAuth = async () => {
 };
 // Log out
 export const logOutPage = async () => {
-  await auth.signOut();
+  await logOutFirebase();
 };

@@ -2,7 +2,6 @@
  :root {
     --primary-color : #6FC8DD;
     --secundary-color :  white;
-
 } 
 
 * {
@@ -237,8 +236,6 @@
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     width: 80%;
-    /* height: 155px; */
-    margin-top: 45px;
     padding: 8px 12px;
     align-items: center;
     margin: 45px 0;
@@ -317,9 +314,9 @@ width: 45%;
 column-gap: 29%;
 font-size: 18px;
 }
-.status-container{
+/* .status-container{
 align-items: flex-start;
-}
+} */
 .username{
 padding-top: 8%;
 font-size: 13px;
@@ -340,10 +337,12 @@ justify-content: space-between;
 }
 .infocontainer{
 flex-direction: column;
+align-self: flex-end;
 }
 
 .newscontainer, .status-container {
     margin: 0 auto;
+    align-items: flex-start;
 }
 
 .newscontainer {
@@ -358,11 +357,6 @@ flex-direction: column;
     max-width: 67%;
     padding: 30px 0;
 }
-
-.infocontainer {
-    align-self: flex-end;
-}
-
 }
 @media only screen and (min-width: 700px){
 .boxed{

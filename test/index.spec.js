@@ -1,14 +1,77 @@
-// import { login } from '../src/auth.js';
+/* eslint-disable import/order */
+// const firebasemock = require('firebase-mock');
 
-// describe('Log in with email and password', () => {
-//   it('Deberia poder iniciar sesión', () => login('alisson@gmail.com', '1234qwerty')
-//     .then((user) => {
-//       expect(user.email).toBe('alisson@gmail.com');
-//     }));
-// });
+// const mockauth = new firebasemock.MockFirebase();
+// const mockfirestore = new firebasemock.MockFirestore();
+// const mockdatabase = new firebasemock.MockFirebase();
+// mockfirestore.autoFlush();
+// mockauth.autoFlush();
 
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
+// global.firebase = firebasemock.MockFirebaseSdk(
+// // use null if your code does not use RTDB
+//   (path) => (path ? mockdatabase.child(path) : null),
+//   () => mockauth,
+//   () => mockfirestore,
+// );
+
+// eslint-disable-next-line import/first
+import { login, signUp, logOutPage } from '../src/auth.js';
+import * as firebase from '../src/lib/firebase.js';
+
+// localStorage Mock
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn(),
+};
+global.localStorage = localStorageMock;
+
+const loginSuccess = {
+  user: {
+    displayName: 'Alisson',
+    email: 'alissonicoleseguratarazona@gmail.com',
+    photoURL: null,
+  },
+};
+// ----------------- LOG IN  -----------------------
+describe('login', () => {
+  it('Should be a function', () => {
+    expect(typeof login).toBe('function');
+  });
+});
+
+describe('login in with credentials', () => {
+  const loginInFirebase = jest.spyOn(firebase, 'loginInFirebase');
+  loginInFirebase.mockResolvedValue(loginSuccess);
+  it('Should be able to login', () => login('alissonicoleseguratarazona@gmail.com', 'Dasdas123456')
+    .then((response) => {
+      expect(response.user.email).toBe('alissonicoleseguratarazona@gmail.com');
+    }));
+});
+// ----------------- SIGN UP  -----------------------
+describe('signUp', () => {
+  it('Should be a function', () => {
+    expect(typeof signUp).toBe('function');
+  });
+});
+
+describe('signUp with credentials', () => {
+  const signUpFirebase = jest.spyOn(firebase, 'signUpFirebase');
+  signUpFirebase.mockResolvedValue(loginSuccess);
+  it('Should be able to register with email and password', () => signUp('alissonicoleseguratarazona@gmail.com', 'Dasdas123456')
+    .then((response) => {
+      expect(response.user.email).toBe('alissonicoleseguratarazona@gmail.com');
+    }));
+});
+// ----------------- LOG OUT  -----------------------
+describe('logOutPage', () => {
+  it('Should be a function', () => {
+    expect(typeof logOutPage).toBe('function');
+  });
+});
+
+describe('loging out', () => {
+  const logOut = jest.spyOn(firebase, 'logOutFirebase');
+  logOut.mockResolvedValue('undefined');
+  it('Should be able to log out', () => logOutPage());
+});
