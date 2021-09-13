@@ -1,19 +1,4 @@
 /* eslint-disable import/order */
-// const firebasemock = require('firebase-mock');
-
-// const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
-// const mockdatabase = new firebasemock.MockFirebase();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
-
-// global.firebase = firebasemock.MockFirebaseSdk(
-// // use null if your code does not use RTDB
-//   (path) => (path ? mockdatabase.child(path) : null),
-//   () => mockauth,
-//   () => mockfirestore,
-// );
-
 // eslint-disable-next-line import/first
 import { login, signUp, logOutPage } from '../src/auth.js';
 import * as firebase from '../src/lib/firebase.js';
