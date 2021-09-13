@@ -2,6 +2,7 @@
  :root {
     --primary-color : #6FC8DD;
     --secundary-color :  white;
+    --third-color : url('images/clouds.jpg');
 } 
 
 * {

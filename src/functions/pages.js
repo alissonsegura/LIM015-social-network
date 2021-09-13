@@ -53,7 +53,6 @@ export const onLoadLogin = () => {
   });
 };
 export const onLoadSignUp = () => {
-  // const signupform = document.querySelector('#signupform');
   const email = document.querySelector('#signupemail');
   const password = document.querySelector('#signuppassword');
   const signUpButton = document.querySelector('#signupbutton');
@@ -81,7 +80,6 @@ export const onLoadNews = () => {
   const logOut = document.querySelector('#logout');
   const userImage = document.querySelector('#userImage');
   const userName = document.querySelector('#user-name');
-  // text area mobile / desktop
   const btnPostMob = document.querySelector('#btnpostmob');
   const userInformation = JSON.parse(localStorage.getItem('user'));
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
@@ -121,7 +119,6 @@ export const onLoadNews = () => {
       </div>
     </div>`;
   const handlePosts = (posts) => {
-    console.log(posts);
     const newsContainer = document.querySelector('#news');// empty div for posts
     let contentPost = '';
     posts.forEach((info) => {
@@ -130,9 +127,7 @@ export const onLoadNews = () => {
     newsContainer.innerHTML = contentPost;
     posts.forEach((info) => {
       const dropDown = newsContainer.querySelector(`#dropdown-${info.postid}`);
-      console.log(dropDown);
       dropDown.addEventListener('change', (e) => {
-        console.log('hola', dropDown);
         if (e.target.value === 'Delete') {
           newsContainer.querySelector(`#getId-${info.postid}`).addEventListener('change', () => deletePost(info.postid));
         }
