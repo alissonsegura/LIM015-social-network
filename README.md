@@ -69,7 +69,7 @@ a la red social.
     ![news](https://github.com/alissonsegura/LIM015-social-network/blob/main/src/images/news-desktop.png?raw=true)
     
 - Prototipado en Figma         
-    <details><summary>Fi  gma</summary><p>
+    <details><summary>Figma</summary><p>
 
      * [Figma](https://9jRI1/Social-Network?node-id=0%3A1)
      
