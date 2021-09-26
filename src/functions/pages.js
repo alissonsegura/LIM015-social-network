@@ -3,6 +3,8 @@ import {
 } from '../auth.js';
 import { getPosts, deletePost, updateEditPost } from '../firestore/firestore.js';
 import { publishPost } from '../controller/posts.js';
+import comment from '../images/commentbutton.svg';
+import likebutton from '../images/likebutton.svg';
 
 export const onLoadLogin = () => {
   const email = document.querySelector('#loginemail');
@@ -113,9 +115,9 @@ export const onLoadNews = () => {
       <div class="container-main">
         <textarea id="textarea-${info.postid}" class="statusbox" type="text" readonly placeholder="">${info.post}</textarea>
         <div class="svgbuttons">
-          <img id="likes-${info.postid}" class="svgimg" src="./images/likebutton.svg" alt="image-post" srcset="" />
+          <img id="likes-${info.postid}" class="svgimg" src="${likebutton}" alt="image-post" srcset="" />
           <span>${info.likes.length}</span>
-          <img class="svgimgs" src="./images/commentbutton.svg" alt="image-post" srcset="" />
+          <img class="svgimgs" src="${comment}" alt="image-post" srcset="" />
           <button id="btnsave-${info.postid}" style="display:none" class="post">Save</button>
         </div>
       </div>

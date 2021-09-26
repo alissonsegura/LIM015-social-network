@@ -1,3 +1,7 @@
+import airplane from '../images/logoairplane.svg';
+import logout from '../images/logout.svg';
+import imgpost from '../images/post-image.svg';
+
 const newsPage = `
 <nav class="navcontainer" id="menu">
   <p id="profile" class="profile">Profile</p>
@@ -5,13 +9,13 @@ const newsPage = `
   <div  class="menuoptions">
   <p class="menuoptions">Discover</p>
   <br>
-  <img class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
+  <img class="navicons" src="${airplane}" alt="airplanelogo"
     srcset=""/>
   </div>
 
   <div id= "logout" class="menuoptions">
   <p class="logout">Log out </p>
-  <img id="navicons" class="navicons" src="./images/logout.svg" alt="logout icon"
+  <img id="navicons" class="navicons" src="${logout}" alt="logout icon"
     srcset="" />
   </div>
 </nav>
@@ -25,7 +29,7 @@ const newsPage = `
       <div class="textbox" id="post text">
         <textarea class="status" id="txtarea" placeholder="What's on your mind?"></textarea>
         <div class="buttons">
-          <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
+          <img class="svgimage" src="${imgpost}" alt="image-post" srcset="">
           <button id="btnpostmob" class="post">Post</button>
         </div>
       </div>

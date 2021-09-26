@@ -1,4 +1,7 @@
-const loginPage = ` <section class="background-container">
+import google from '../images/flat-color-icons_google.svg';
+import facebook from '../images/logos_facebook.svg';
+
+const loginPage = `<section class="background-container">
 <section class="container">
   <div class="form-container">
     <div class="login-title">
@@ -22,8 +25,8 @@ const loginPage = ` <section class="background-container">
       <p class="ortext"><strong>- OR -</strong></p>
       <br>
       <div class="icon-container">
-        <img id="googlesvg" src="./images/flat-color-icons_google (1).svg" alt="google icon" srcset="" />
-        <img id="fbsvg" src="./images/logos_facebook.svg" alt=" facebook icon" srcset="" />
+        <img id="googlesvg" src="${google}" alt="google icon" srcset="" />
+        <img id="fbsvg" src="${facebook}" alt=" facebook icon" srcset="" />
       </div>
       <p class="register-text">Don't have an account?<span id="signup" class="register-text">Sign Up</span>
       </p>
