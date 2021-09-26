@@ -306,10 +306,13 @@ font-size: 17px;
 font-size: 17px;
 column-gap: 24%;
 }  
+
 }
 @media only screen and (min-width: 600px){
 .container{
-width: 45%;
+width: 55%;
+/* width: 60%; */
+
 }
 .navcontainer{
 column-gap: 29%;
@@ -367,9 +370,9 @@ justify-content: space-around;
     margin: 0;
 }
 }
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 1000px){
 .container{
-width: 35%;
+width: 45%;
 }
 .status-container {
     max-width: 70%;
@@ -377,7 +380,7 @@ width: 35%;
 }
 @media only screen and (min-width: 1200px){
 .container{
-width: 28%;
+width: 30%;
 }
 }
 
