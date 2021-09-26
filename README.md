@@ -4,7 +4,7 @@
 
 >Social Network Project
 
-<br> </br>
+
 ## Índice
 
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
@@ -12,8 +12,6 @@
 * [3. Diseño de la Interfaz de Usuario](#3-diseño-de-la-interfaz-de-usuario)
 * [4. Objetivos de aprendizaje](#4-objetivos-de-aprendizaje)
 
-  <br> </br>
-## 1.  Resumen del proyecto 🧐
 
                   Discover ✈️
  Es una red social en donde todos los usuarios podrán compartir sus experiencias obtenidas en cualquier lugar del mundo, usuarios que esten planeando un viaje y busquen recomendaciones, como tambien usuarios que deseen recomendar hospedajes, restaurantes o cualquier interes o información que pueda ayudar a otro viajero.
@@ -22,7 +20,7 @@ Esta red social va enfocada para usuarios apartir de los 18 ,  sin limite de eda
 
 Nuestros usuarios utilizarán nuestro producto cuando quieran emprender un nuevo viaje y necesiten reseñas o tips de algún lugar en específico, cuando quieran contactar a un/a viajero/a directamente o cuando simplemente quiera ver que hay de nuevo en la red social.
 
-<br> </br>
+
 ## 2. Historias de Usuario 👤 📝
 
 Las historias de usuario estan organizadas segun prioridad. 
@@ -46,7 +44,7 @@ a la red social.
 ```
 
 
-<br> </br>
+
 ## 3. Diseño de la Interfaz de Usuario
 
 * Vista mobile
@@ -76,7 +74,7 @@ a la red social.
 </p></details>
 
 
-<br> </br>
+
 ## 4. Objetivos de aprendizaje
 
 ### HTML
@@ -308,7 +306,7 @@ a la red social.
   * [Obtén actualizaciones en tiempo real con Cloud Firestore - Documentación oficial](https://firebase.google.com/docs/firestore/query-data/listen?hl=es)
 </p></details>
 
-<br> </br>
+
 
 
 
