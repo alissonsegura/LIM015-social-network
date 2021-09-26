@@ -36,6 +36,6 @@ export const routes = {
 window.addEventListener('popstate', () => {
   //  only triggered by clicking on the back button/when user navigates between two history entries
   const pathName = window.location.pathname;
-  const pathNameNoSlash = pathName.replace('/LIM015-social-network/src/', '');
+  const pathNameNoSlash = pathName.replace('/', '');
   routes[pathNameNoSlash]();
 });
