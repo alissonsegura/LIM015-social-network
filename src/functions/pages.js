@@ -5,7 +5,6 @@ import { getPosts, deletePost, updateEditPost } from '../firestore/firestore.js'
 import { publishPost } from '../controller/posts.js';
 
 export const onLoadLogin = () => {
-  // const loginForm = document.querySelector('#login');
   const email = document.querySelector('#loginemail');
   const password = document.querySelector('#loginpassword');
   const googleIcon = document.querySelector('#googlesvg');
@@ -22,6 +21,7 @@ export const onLoadLogin = () => {
       await login(emailValue, passwordValue);
       window.history.replaceState({ route: 'news' }, 'news', '/news');
       window.dispatchEvent(new Event('popstate'));
+      // creating a custom event
     } catch (error) {
       errorMessage.innerHTML = error.message;
     }
@@ -82,7 +82,9 @@ export const onLoadNews = () => {
   const userName = document.querySelector('#user-name');
   const btnPostMob = document.querySelector('#btnpostmob');
   const userInformation = JSON.parse(localStorage.getItem('user'));
+  // convert data save in localstorage to an object to use it
   userImage.setAttribute('src', userInformation.photoURL || './images/default-profile.svg');
+  //  adding userinfo-photoUrl to my attribute 'src'
   userName.innerHTML = userInformation.name;
   logOut.addEventListener('click', async () => {
     await logOutPage();

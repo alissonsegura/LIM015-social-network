@@ -10,11 +10,16 @@ export const login = async (email, password) => {
       id: userCredential.user.uid,
     };
     localStorage.setItem('user', JSON.stringify(userInformation));
+    // whenever we want to add something in localstorage we use .setitem
+    //  localstorage only stores strings so we convert it using the JSON. stringify() method
     return userCredential;
   } catch (error) {
     throw Error(error.message);
   }
 };
+//  async functions always returns promises
+//  await pause your code on that line until the promise fulfills
+
 // Email Verification
 export const sendEmailVerification = async () => {
   try {

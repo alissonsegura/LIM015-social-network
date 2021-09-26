@@ -4,6 +4,8 @@ export const loginInFirebase = async (email, password) => {
     return data;
   } catch (error) {
     throw Error(error.message);
+    //  lets you create custom errors.
+    //  exposes an error event with two params name & message. It also terminate further execution
   }
 };
 

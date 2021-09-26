@@ -37,5 +37,8 @@
   },
   "engines": {
     "node": ">=10"
+  },
+  "dependencies": {
+    "deployment": "^0.2.3"
   }
 }
